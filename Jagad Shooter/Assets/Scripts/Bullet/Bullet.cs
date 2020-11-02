@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            temp.y -= speed * Time.deltaTime;
+            temp.y -= speed * 1.5f * Time.deltaTime;
         }
 
         transform.position = temp;
@@ -32,5 +32,13 @@ public class Bullet : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" || collision.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }

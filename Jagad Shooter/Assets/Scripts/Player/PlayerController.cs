@@ -1,10 +1,13 @@
-﻿using System.Diagnostics;
+﻿
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 5f;
+    public bool isMoveRight = false;
+    public bool isMoveLeft = false;
     public float XMin = -2.5f, XMax = 2.5f;
 
     [Space(10)]
@@ -15,8 +18,12 @@ public class PlayerController : MonoBehaviour
     public float shootInterval = .35f;
     public float currentInterval;
 
+    public UnityEvent loseEvent;
+
+    private Animator anim;
     private void Start()
     {
+        anim = GetComponent<Animator>();
         currentInterval = shootInterval;
     }
 
@@ -29,7 +36,28 @@ public class PlayerController : MonoBehaviour
             canShoot = true;
         }
 
-#if (UNITY_EDITOR)
+        if (isMoveRight)
+        {
+            Vector3 temp = transform.position;
+            temp.x += moveSpeed * Time.deltaTime;
+            if (temp.x > XMax)
+            {
+                temp.x = XMax;
+            }
+            transform.position = temp;
+        }
+        else if (isMoveLeft)
+        {
+            Vector3 temp = transform.position;
+            temp.x -= moveSpeed * Time.deltaTime;
+            if (temp.x < XMin)
+            {
+                temp.x = XMin;
+            }
+            transform.position = temp;
+        }
+
+        #if UNITY_EDITOR
         MovePlayerByKeyboard();
 
         if (canShoot)
@@ -67,10 +95,41 @@ public class PlayerController : MonoBehaviour
         transform.position = temp;
     }
 
-    void Shoot()
+    public void MoveLeft()
     {
-        GameObject bullets = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        isMoveLeft = true;
+    }
+
+    public void NotMove()
+    {
+        isMoveRight = false;
+        isMoveLeft = false;
+    }
+
+    public void MoveRight()
+    {
+        isMoveRight = true;
+    }
+
+    public void Shoot()
+    {
+        GameObject bullets = Instantiate(bullet, attackPoint.position, bullet.transform.rotation);
         bullets.GetComponent<Bullet>().isPlayer = true;
         bullets.transform.tag = gameObject.tag;
+    }
+
+    private void WillBeDestroyed()
+    {
+        loseEvent.Invoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            canShoot = false;
+            anim.Play("Destroy");
+            Invoke("WillBeDestroyed", .3f);
+        }
     }
 }

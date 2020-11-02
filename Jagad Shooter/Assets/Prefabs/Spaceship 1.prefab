@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 2543420024454393067}
   - component: {fileID: 2543420024454393065}
   - component: {fileID: 636747410}
+  - component: {fileID: 878278154}
+  - component: {fileID: 8919334518501728355}
   m_Layer: 0
   m_Name: Spaceship 1
   m_TagString: Player
@@ -131,8 +133,13 @@ MonoBehaviour:
   XMin: -2.5
   XMax: 2.5
   canShoot: 1
-  bullet: {fileID: 2294767793042861518, guid: 445484694a02e614790589826c986e6e, type: 3}
+  bullet: {fileID: 3490289560848958776, guid: f78c23e6c9234804aa4666263f58527b, type: 3}
   attackPoint: {fileID: 222254943}
+  shootInterval: 0.35
+  currentInterval: 0
+  loseEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &636747410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,3 +166,43 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.622851, y: 4.25}
   m_EdgeRadius: 0
+--- !u!95 &878278154
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543420024454393060}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f03066756a8ac247a847ff6b97b17fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &8919334518501728355
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543420024454393060}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

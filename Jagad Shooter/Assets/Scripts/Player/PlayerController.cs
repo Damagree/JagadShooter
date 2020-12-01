@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public bool isMoveRight = false;
     public bool isMoveLeft = false;
     public float XMin = -2.5f, XMax = 2.5f;
+    public GameObject explotions;
 
     [Space(10)]
     [Header("Shoot Setting")]
@@ -127,9 +128,19 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            canShoot = false;
-            anim.Play("Destroy");
-            Invoke("WillBeDestroyed", .3f);
+            float curentHealth = gameObject.GetComponent<Health>().currentHealth;
+
+            if (curentHealth <= 0)
+            {
+                canShoot = false;
+                anim.Play("Destroy");
+                Invoke("WillBeDestroyed", .3f);
+            }
+            else
+            {
+                explotions.GetComponent<Animator>().Play("Explode_Main");
+            }
+            
         }
     }
 }

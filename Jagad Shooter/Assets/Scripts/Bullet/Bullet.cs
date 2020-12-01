@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 5f;
     public float deactive = 3;
-
+    public float damageSent = 100f;
     public bool isPlayer;
 
     // Update is called once per frame
@@ -38,6 +38,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Enemy" || collision.tag == "Player")
         {
+            collision.gameObject.GetComponent<Health>().TakeDamage(damageSent);
+
             Destroy(gameObject);
         }
     }

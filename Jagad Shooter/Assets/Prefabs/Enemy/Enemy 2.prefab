@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5794122626681656876}
   - component: {fileID: 7052787361963203460}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5406355788086022859}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: -2.64, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 7515154247512090992}
   - {fileID: 3481336261080350630}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -2887842143758546267, guid: e3248890892d075468a0c8d37b00f5bf,
     type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.723927, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42035f6235f82cb4e987da08055eea15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointGet: 100
-  speed: 2
+  pointGet: 300
+  speed: 1
   rotateSpeed: 50
   canShoot: 1
   canRotate: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0770255b0c7fce40a20bcd77c2656f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
+  currentHealth: 300
 --- !u!95 &1741134729
 Animator:
   serializedVersion: 3

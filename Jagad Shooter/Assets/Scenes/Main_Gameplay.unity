@@ -160,6 +160,7 @@ MonoBehaviour:
   - {fileID: 5406355788086022859, guid: 3eec33ba1e8d3d74999313efdc695389, type: 3}
   - {fileID: 1226560428917677903, guid: 8e2d4f020386f454fbcea8af27197d47, type: 3}
   - {fileID: 179020346133146245, guid: f3d88a0861acbc54aaa8ca8f152143fc, type: 3}
+  - {fileID: 5406355788086022859, guid: 06947c40bce28c245b64558545ddf701, type: 3}
   quad: {fileID: 147366500}
   screenX: 0
   canSpawn: 1
@@ -1570,44 +1571,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2543420024454393065, guid: 9355dce988c66d545a2e43648933b8cc,
         type: 3}
-      propertyPath: loseEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2543420024454393065, guid: 9355dce988c66d545a2e43648933b8cc,
-        type: 3}
-      propertyPath: loseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2543420024454393065, guid: 9355dce988c66d545a2e43648933b8cc,
-        type: 3}
-      propertyPath: loseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2543420024454393065, guid: 9355dce988c66d545a2e43648933b8cc,
-        type: 3}
       propertyPath: loseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1097885480}
-    - target: {fileID: 2543420024454393065, guid: 9355dce988c66d545a2e43648933b8cc,
-        type: 3}
-      propertyPath: loseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 2543420024454393065, guid: 9355dce988c66d545a2e43648933b8cc,
-        type: 3}
-      propertyPath: loseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2543420024454393065, guid: 9355dce988c66d545a2e43648933b8cc,
-        type: 3}
-      propertyPath: loseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Menu_Main
-      objectReference: {fileID: 0}
-    - target: {fileID: 2543420024454393065, guid: 9355dce988c66d545a2e43648933b8cc,
-        type: 3}
-      propertyPath: loseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2543420024454393066, guid: 9355dce988c66d545a2e43648933b8cc,
         type: 3}
       propertyPath: m_LocalPosition.x

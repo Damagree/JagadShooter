@@ -17,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool haveInsideCamera = false;
 
+    public GameObject Explotions;
+
     public Transform bulletSpawn;
     public GameObject bulletPrefabs;
 
@@ -87,17 +89,26 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("booomm");
-            canMove = false;
-            if (canShoot)
+            
+            float curentHealth = gameObject.GetComponent<Health>().currentHealth;
+            
+            if (curentHealth <= 0)
             {
-                CancelInvoke("StartShooting");
-                canShoot = false;
+                canMove = false;
+                if (canShoot)
+                {
+                    CancelInvoke("StartShooting");
+                    canShoot = false;
+                }
+                canRotate = false;
+                anim.Play("Destroy");
+                PlayerData.Score += pointGet;
+                Invoke("WillBeDestroyed", .3f);
             }
-            canRotate = false;
-            anim.Play("Destroy");
-            PlayerData.Score += pointGet;
-            Invoke("WillBeDestroyed", .3f);
+            else
+            {
+                Explotions.GetComponent<Animator>().Play("Explode_Main");
+            }
         }
     }
 
